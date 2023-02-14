@@ -1,5 +1,7 @@
 package com.bitacora.bitacorapp.controllers;
 
+import com.bitacora.bitacorapp.domain.EmpresaDomain;
+import com.bitacora.bitacorapp.service.EmpresaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,15 +23,15 @@ public class EmpresaController {
 
     }
     @GetMapping("/empresa/all")
-    public <EmpresaDomainn> get()  {
+    public <EmpresaDomain> get()  {
 
         return empresaService.getAll();
     }
 
     @PostMapping("/empresa")
-    public <EmpresaDomian> create(@Valid @RequestBody EmpresaDomian empresaDomian) {
+    public <EmpresaDomain> create(@Valid @RequestBody EmpresaDomain empresaDomain) {
 
-        return empresaService.save(empresaDomian);
+        return empresaService.save(empresaDomain);
     }
 
     @PutMapping("/empresa")
@@ -40,9 +42,9 @@ public class EmpresaController {
     }
 
     @DeleteMapping("/empresa")
-    public <ResponseEntity<Void> delete (@RequestParam(required = true) String productosDomianId) {
+    public <ResponseEntity<Void> delete (@RequestParam(required = true) String productosDomainId) {
 
-        return empresaService.delete(empresaDomianId).then(Mono.just(new ResponseEntity<Void>(HttpStatus.OK)))
+        return empresaService.delete(empresaDomainId).then(Mono.just(new ResponseEntity<Void>(HttpStatus.OK)))
                 .defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.NOT_FOUND));
      }
 

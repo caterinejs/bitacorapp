@@ -36,7 +36,7 @@ public class PersonasService {
                     personasDomain.getEmail().isEmpty() ? existingPersonasDomain.getEmail() : personasDomain.getEmail());
         });
     }
-    public static Void delete(String id) {
+    public static Void delete(Integer id) {
         return PersonasRepository.findById(id).flatMap(existingPersonasDomain ->
                 PersonasRepository.deleteById(id));
     }

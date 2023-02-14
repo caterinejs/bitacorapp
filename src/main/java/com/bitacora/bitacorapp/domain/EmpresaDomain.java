@@ -9,28 +9,26 @@ import java.util.ArrayList;
 public class EmpresaDomain {
 
     @Id
-    private String id;
+    private Integer id;
     private String name;
-    private Number phone;
+    private String phone;
     private String legallyResponsible;
-
-
 
     public EmpresaDomain() {
     }
 
-    public EmpresaDomain(String id, String name, Number phone, String legallyResponsible) {
+    public EmpresaDomain(Integer id, String name, String phone, String legallyResponsible) {
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.legallyResponsible = legallyResponsible;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -42,11 +40,11 @@ public class EmpresaDomain {
         this.name = name;
     }
 
-    public Number getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Number phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

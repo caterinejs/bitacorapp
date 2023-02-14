@@ -35,8 +35,8 @@ public class EmpresaService {
 
         });
     }
-    public <Void> delete(Strinf id){
-        return empresaRepository.findById(id).flatMap(exstingEmpresaDomain ->
+    public <Void> delete(Integer id){
+        return empresaRepository.findById(id).flatMap(existingEmpresaDomain ->
                 empresaRepository.deleteById(id));
     }
 }

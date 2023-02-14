@@ -6,19 +6,19 @@ package com.bitacora.bitacorapp.domain;
 public class PersonasDomain {
 
     @Id
-    private String id;
+    private Integer id;
     private String name;
-    private Number phone;
+    private String phone;
     private String signature;
     private String email;
-    private Number companyId;
+    private Integer companyId;
     private String userType;
 
     public PersonasDomain() {
     }
 
-    public PersonasDomain(String id, String name, Number phone, String signature, String email,
-                          Number companyId, String userType) {
+    public PersonasDomain(Integer id, String name, String phone, String signature,
+                          String email, Integer companyId, String userType) {
         this.id = id;
         this.name = name;
         this.phone = phone;
@@ -28,11 +28,11 @@ public class PersonasDomain {
         this.userType = userType;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -44,11 +44,11 @@ public class PersonasDomain {
         this.name = name;
     }
 
-    public Number getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Number phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -68,11 +68,11 @@ public class PersonasDomain {
         this.email = email;
     }
 
-    public Number getCompanyId() {
+    public Integer getCompanyId() {
         return companyId;
     }
 
-    public void setCompanyId(Number companyId) {
+    public void setCompanyId(Integer companyId) {
         this.companyId = companyId;
     }
 
