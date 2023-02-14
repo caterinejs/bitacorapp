@@ -25,8 +25,8 @@ public class MantenimientoService {
 
         return mantenimientoRepository.save(zone);
     }
-    public <MantenimientoDomain> update(String id, MantenimientoDomain mantenimientoDomain){
-        return mantenimientoRepository.findById(id).flatMap(existingMantenimientoDomain -> {
+    public <MantenimientoDomain> update(String zone, MantenimientoDomain mantenimientoDomain){
+        return mantenimientoRepository.findByZone(zone).flatMap(existingMantenimientoDomain -> {
             existingMantenimientoDomain.setStartDate(
                     mantenimientoDomain.getStartDate().isEmpty() ? existingMantenimientoDomain.getStartDate() : mantenimientoDomain.getStartDate());
             existingMantenimientoDomain.setDeliverDate(
@@ -43,8 +43,8 @@ public class MantenimientoService {
 
         });
     }
-    public <Void> delete(Integer id){
-        return mantenimientoRepository.findById(id).flatMap(existingMantenimientoDomain ->
-               mantenimientoRepository.deleteById(id));
+    public <Void> delete(String Zone){
+        return mantenimientoRepository.findByZone(zone).flatMap(existingMantenimientoDomain ->
+               mantenimientoRepository.deleteByZone(zone));
     }
 }
