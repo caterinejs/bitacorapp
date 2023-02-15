@@ -6,7 +6,6 @@ import com.bitacora.bitacorapp.domain.PersonasDomain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -29,14 +28,14 @@ public class PersonasController {
     }
 
     @PostMapping("/personas")
-    public PersonasDomain create(@Validated @RequestBody PersonasDomain personasDomain) {
+    public PersonasDomain create(@Valid @RequestBody PersonasDomain personasDomain) {
 
         return personasService.save(personasDomain);
     }
 
     @PutMapping("/personas")
     public ResponseEntity <PersonasDomain> update(@RequestParam(required = true) String personasDomainId,
-                                                       @Validated @RequestBody PersonasDomain personasDomain){
+                                                       @Valid @RequestBody PersonasDomain personasDomain){
         return personasService.update(personasDomainId, personasDomain).map(updatePersonasDomain -> new ResponseEntity<>(
                 updatePersonasDomain, HttpStatus.OK)).defaultIfEmpty(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
