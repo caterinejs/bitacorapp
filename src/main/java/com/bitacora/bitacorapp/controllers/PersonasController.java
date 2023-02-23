@@ -3,6 +3,7 @@ package com.bitacora.bitacorapp.controllers;
 
 import com.bitacora.bitacorapp.domain.PersonasDomain;
 import com.bitacora.bitacorapp.service.PersonasService;
+import com.github.fge.jsonpatch.JsonPatch;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,22 +41,20 @@ public class PersonasController {
     public PersonasDomain create(@RequestBody PersonasDomain person) {
         return personasService.save(person);
     }
-    /*
-    @PutMapping("/personas")
-    public ResponseEntity<PersonasDomain> update(@RequestParam(required = true) Long personasDomainId,
-                                                 @Valid @RequestBody PersonasDomain personasDomain){
-        return personasService.update(personasDomainId, personasDomain).map(updatePersonasDomain -> new ResponseEntity<>(
-                updatePersonasDomain, HttpStatus.OK)).defaultIfEmpty(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+
+    @PutMapping("/personas/{id}")
+    public void update(@PathVariable("id") Long id,
+                       @Valid @RequestBody PersonasDomain personasDomain) {
+        personasService.update(id, personasDomain);
     }
 
-    @DeleteMapping("/personas")
-    public ResponseEntity<Void> delete (@RequestParam(required = true) String personasDomainId) {
-
-        return personasService.delete(personasDomainId).then(new ResponseEntity<Void>(HttpStatus.OK))
-                .defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.OK));
+    @PatchMapping(value = "/personas/{id}", consumes = "application/json-patch+json")
+    public ResponseEntity<PersonasDomain> patch(@PathVariable("id") Long id, @RequestBody JsonPatch patch) {
+        return new ResponseEntity<>(personasService.patch(id, patch), HttpStatus.OK);
     }
 
-*/
-
-
+    @DeleteMapping("/personas/{id}")
+    public void delete(@PathVariable("id") Long id) {
+        personasService.delete(id);
+    }
 }

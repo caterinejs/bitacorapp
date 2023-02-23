@@ -21,9 +21,8 @@ public interface PersonasRepository extends CrudRepository<PersonasDomain, Long>
     @Query(value = "SELECT count(1) FROM schema_bitacorapp.tbi_personas p WHERE p.email = ?1", nativeQuery = true)
     int countByEmail(String email);
 
-    /*Modifier UPDATE
     @Modifying
-    @Query(value = "UPDATE product SET description = ?1, category = ?2, price = ?3 WHERE id = ?4", nativeQuery = true)
-    void updateById(String description, String category, BigDecimal price, long id);
-     */
+    @Query(value = "UPDATE schema_bitacorapp.tbi_personas SET name = ?1, email = ?2, company_id = ?3, phone = ?4, signature = ?5, user_type = ?6  WHERE id = ?7", nativeQuery = true)
+    void updateById(String name, String email, Integer companyId, String phone, String signature, String userType, long id);
+
 }

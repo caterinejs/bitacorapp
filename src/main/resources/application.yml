@@ -1,0 +1,17 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: schema_bitacorapp
+    hibernate:
+      show-sql: true
+      ddl-auto: none
+  datasource:
+    url:  jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: Matilde0103@*
+    initialization-mode: always
+    initialize: true
+    schema: schema_bitacorapp
+    continue-on-error: true
