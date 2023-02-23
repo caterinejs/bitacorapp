@@ -1,14 +1,11 @@
 package com.bitacora.bitacorapp.domain;
 
-
 import jakarta.validation.Valid;
-
 import java.util.ArrayList;
 
-@Document (collection = "empresa_data")
+
 public class EmpresaDomain {
 
-    @Id
     private Integer id;
     private String name;
     private String phone;

@@ -1,6 +1,5 @@
 package com.bitacora.bitacorapp.service;
 
-
 import com.bitacora.bitacorapp.domain.HistoricoMantenimientosDomain;
 import com.bitacora.bitacorapp.repository.HistoricoMantenimientosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class HistoricoMantenimientosService {
-
+/*
     @Autowired
     private HistoricoMantenimientosRepository historicoMantenimientosRepository;
 
@@ -38,5 +37,5 @@ public class HistoricoMantenimientosService {
         return HistoricoMantenimientosRepository.findByIdHistorical(idHistorical).flatMap(existingHistoricoMantenimientosDomain ->
                 historicoMantenimientosRepository.deleteById(idHistorical));
     }
-
+*/
 }

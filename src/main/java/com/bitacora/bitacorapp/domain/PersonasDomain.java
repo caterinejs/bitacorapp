@@ -1,23 +1,37 @@
 package com.bitacora.bitacorapp.domain;
 
 
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
-@Document (collection = "personas_data")
+@Entity
+@Table(name = "tbi_personas")
+@Getter
+@Setter
 public class PersonasDomain {
 
     @Id
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "phone")
     private String phone;
+    @Column(name = "signature")
     private String signature;
+    @Column(name = "email")
     private String email;
+    @Column(name = "company_id")
     private Integer companyId;
+    @Column(name = "user_type")
     private String userType;
 
     public PersonasDomain() {
     }
 
-    public PersonasDomain(Integer id, String name, String phone, String signature,
+    public PersonasDomain(Long id, String name, String phone, String signature,
                           String email, Integer companyId, String userType) {
         this.id = id;
         this.name = name;
@@ -28,11 +42,11 @@ public class PersonasDomain {
         this.userType = userType;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

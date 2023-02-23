@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("app")
 
 public class MantenimientoController {
-
+/*
     @Autowired
     private MantenimientoService mantenimientoService;
 
@@ -47,5 +47,5 @@ public class MantenimientoController {
         return mantenimientoService.delete(mantenimientoDomainId).then(Mono.just(new ResponseEntity<Void>(HttpStatus.OK)))
                 .defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.NOT_FOUND));
      }
-
+*/
 }

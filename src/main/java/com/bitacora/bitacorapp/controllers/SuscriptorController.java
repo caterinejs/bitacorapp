@@ -1,6 +1,5 @@
 package com.bitacora.bitacorapp.controllers;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("app")
 
 public class SuscriptorController {
-
+/*
     @Autowired
     private SuscriptorService suscriptorService;
 
@@ -43,10 +42,5 @@ public class SuscriptorController {
         return suscriptorService.delete(suscriptorDomainId).then(new ResponseEntity<Void>(HttpStatus.OK))
                 .defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.OK));
     }
-
-
-
-
-
-
+*/
 }

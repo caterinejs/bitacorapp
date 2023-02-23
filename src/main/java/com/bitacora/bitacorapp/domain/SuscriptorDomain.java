@@ -1,9 +1,9 @@
 package com.bitacora.bitacorapp.domain;
 
-@Document (collection = "suscriptor_data")
+
 public class SuscriptorDomain {
 
-    @Id
+
     private Integer id;
     private String email;
     private String phone;

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SuscriptorService {
-
+/*
     @Autowired
     private SuscriptorRepository suscriptorRepository;
 
@@ -34,5 +34,5 @@ public class SuscriptorService {
         return SuscriptorRepository.findById(id).flatMap(existingSuscriptorDomain ->
                 suscriptorRepository.deleteById(id));
     }
-
+*/
 }

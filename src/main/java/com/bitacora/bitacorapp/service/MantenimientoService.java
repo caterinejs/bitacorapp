@@ -4,10 +4,11 @@ package com.bitacora.bitacorapp.service;
 import com.bitacora.bitacorapp.repository.EmpresaRepository;
 import com.bitacora.bitacorapp.repository.MantenimientoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class MantenimientoService {
-
+/*
     @Autowired
     private MantenimientoRepository mantenimientoRepository;
 
@@ -47,4 +48,6 @@ public class MantenimientoService {
         return mantenimientoRepository.findByZone(zone).flatMap(existingMantenimientoDomain ->
                mantenimientoRepository.deleteByZone(zone));
     }
+
+ */
 }

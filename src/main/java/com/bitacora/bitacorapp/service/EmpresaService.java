@@ -3,10 +3,11 @@ package com.bitacora.bitacorapp.service;
 
 import com.bitacora.bitacorapp.repository.EmpresaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class EmpresaService {
-
+/*
     @Autowired
     private EmpresaRepository empresaRepository;
 
@@ -39,4 +40,6 @@ public class EmpresaService {
         return empresaRepository.findById(id).flatMap(existingEmpresaDomain ->
                 empresaRepository.deleteById(id));
     }
+
+ */
 }

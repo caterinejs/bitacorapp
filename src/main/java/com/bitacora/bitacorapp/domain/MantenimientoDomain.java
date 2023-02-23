@@ -2,10 +2,8 @@ package com.bitacora.bitacorapp.domain;
 
 import java.util.Date;
 
-@Document (collection = "mantenimiento_data")
 public class MantenimientoDomain {
 
-    @Id
     private Integer id;
     private Date startDate;
     private Date deliverDate;

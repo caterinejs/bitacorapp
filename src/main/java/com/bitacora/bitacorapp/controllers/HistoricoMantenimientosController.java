@@ -1,7 +1,7 @@
 package com.bitacora.bitacorapp.controllers;
 
 
-i
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("app")
 
 public class HistoricoMantenimientosController {
-
+/*
     @Autowired
     private HistoricoMantenimientosService historicoMantenimientosService;
 
@@ -44,10 +44,5 @@ public class HistoricoMantenimientosController {
         return historicoMantenimientosService.delete(historicoMantenimientosDomainId).then(new ResponseEntity<Void>(HttpStatus.OK))
                 .defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.OK));
     }
-
-
-
-
-
-
+*/
 }

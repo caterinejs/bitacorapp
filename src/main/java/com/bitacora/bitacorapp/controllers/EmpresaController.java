@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("app")
 
 public class EmpresaController {
-
+/*
     @Autowired
     private EmpresaService empresaService;
 
@@ -47,5 +47,5 @@ public class EmpresaController {
         return empresaService.delete(empresaDomainId).then(Mono.just(new ResponseEntity<Void>(HttpStatus.OK)))
                 .defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.NOT_FOUND));
      }
-
+*/
 }
