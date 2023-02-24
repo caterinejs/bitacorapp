@@ -61,11 +61,11 @@ public class PersonasService {
     @Transactional
     public PersonasDomain patch(long id, JsonPatch patch) {
         return personasRepository.save(
-                applyPatchToProduct(patch, personasRepository.findById(id)
+                applyPatchToPerson(patch, personasRepository.findById(id)
                         .orElseThrow(EntityNotFoundException::new)));
     }
 
-    private PersonasDomain applyPatchToProduct(JsonPatch patch, PersonasDomain person) {
+    private PersonasDomain applyPatchToPerson(JsonPatch patch, PersonasDomain person) {
         try {
             var objectMapper = new ObjectMapper();
             JsonNode patched = patch.apply(objectMapper.convertValue(person, JsonNode.class));
