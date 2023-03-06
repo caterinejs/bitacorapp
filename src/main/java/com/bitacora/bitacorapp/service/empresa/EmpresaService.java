@@ -1,8 +1,6 @@
-package com.bitacora.bitacorapp.service;
+package com.bitacora.bitacorapp.service.empresa;
 
 
-import com.bitacora.bitacorapp.repository.EmpresaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service

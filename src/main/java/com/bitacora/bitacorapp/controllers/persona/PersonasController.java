@@ -1,8 +1,8 @@
-package com.bitacora.bitacorapp.controllers;
+package com.bitacora.bitacorapp.controllers.persona;
 
 
-import com.bitacora.bitacorapp.domain.PersonasDomain;
-import com.bitacora.bitacorapp.service.PersonasService;
+import com.bitacora.bitacorapp.domain.persona.PersonasDomain;
+import com.bitacora.bitacorapp.service.persona.PersonasService;
 import com.github.fge.jsonpatch.JsonPatch;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

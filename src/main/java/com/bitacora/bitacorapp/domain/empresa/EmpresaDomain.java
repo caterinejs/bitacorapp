@@ -1,4 +1,4 @@
-package com.bitacora.bitacorapp.domain;
+package com.bitacora.bitacorapp.domain.empresa;
 
 import jakarta.validation.Valid;
 import java.util.ArrayList;

@@ -1,8 +1,5 @@
-package com.bitacora.bitacorapp.service;
+package com.bitacora.bitacorapp.service.historicomantenimiento;
 
-import com.bitacora.bitacorapp.domain.HistoricoMantenimientosDomain;
-import com.bitacora.bitacorapp.repository.HistoricoMantenimientosRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service

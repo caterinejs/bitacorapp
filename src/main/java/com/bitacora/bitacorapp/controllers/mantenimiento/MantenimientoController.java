@@ -1,11 +1,5 @@
-package com.bitacora.bitacorapp.controllers;
+package com.bitacora.bitacorapp.controllers.mantenimiento;
 
-import com.bitacora.bitacorapp.domain.MantenimientoDomain;
-import com.bitacora.bitacorapp.service.MantenimientoService;
-import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

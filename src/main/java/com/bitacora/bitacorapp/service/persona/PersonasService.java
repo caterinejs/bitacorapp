@@ -1,8 +1,8 @@
-package com.bitacora.bitacorapp.service;
+package com.bitacora.bitacorapp.service.persona;
 
 
-import com.bitacora.bitacorapp.domain.PersonasDomain;
-import com.bitacora.bitacorapp.repository.PersonasRepository;
+import com.bitacora.bitacorapp.domain.persona.PersonasDomain;
+import com.bitacora.bitacorapp.repository.persona.PersonasRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

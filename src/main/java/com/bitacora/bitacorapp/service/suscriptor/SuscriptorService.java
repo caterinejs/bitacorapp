@@ -1,4 +1,4 @@
-package com.bitacora.bitacorapp.service;
+package com.bitacora.bitacorapp.service.suscriptor;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

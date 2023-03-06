@@ -1,9 +1,5 @@
-package com.bitacora.bitacorapp.repository;
+package com.bitacora.bitacorapp.repository.historicomantenimiento;
 
-import com.bitacora.bitacorapp.domain.HistoricoMantenimientosDomain;
-import com.bitacora.bitacorapp.domain.PersonasDomain;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository

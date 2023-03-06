@@ -1,4 +1,4 @@
-package com.bitacora.bitacorapp.controllers;
+package com.bitacora.bitacorapp.controllers.historicomantenimiento;
 
 
 

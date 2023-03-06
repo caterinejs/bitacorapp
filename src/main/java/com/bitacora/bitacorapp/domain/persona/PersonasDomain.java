@@ -1,4 +1,4 @@
-package com.bitacora.bitacorapp.domain;
+package com.bitacora.bitacorapp.domain.persona;
 
 
 import jakarta.persistence.*;
@@ -13,7 +13,7 @@ public class PersonasDomain {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+        @Column(name = "id", nullable = false)
     private Long id;
     @Column(name = "name")
     private String name;

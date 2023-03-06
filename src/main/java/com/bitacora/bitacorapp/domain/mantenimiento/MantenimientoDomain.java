@@ -1,4 +1,4 @@
-package com.bitacora.bitacorapp.domain;
+package com.bitacora.bitacorapp.domain.mantenimiento;
 
 import java.util.Date;
 
