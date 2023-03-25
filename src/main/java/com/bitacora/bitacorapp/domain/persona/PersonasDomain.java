@@ -1,6 +1,7 @@
 package com.bitacora.bitacorapp.domain.persona;
 
 
+import com.bitacora.bitacorapp.domain.audit.AuditDomain;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +10,7 @@ import lombok.Setter;
 @Table(name = "tbi_personas")
 @Getter
 @Setter
-public class PersonasDomain {
+public class PersonasDomain extends AuditDomain {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +31,7 @@ public class PersonasDomain {
 
     public PersonasDomain() {
     }
+
 
     public PersonasDomain(Long id, String name, String phone, String signature,
                           String email, Integer companyId, String userType) {
