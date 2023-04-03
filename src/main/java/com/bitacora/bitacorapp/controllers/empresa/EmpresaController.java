@@ -1,45 +1,44 @@
 package com.bitacora.bitacorapp.controllers.empresa;
 
+import com.bitacora.bitacorapp.domain.empresa.EmpresaDomain;
+import com.bitacora.bitacorapp.service.empresa.EmpresaService;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 @RestController
-@RequestMapping("app")
+@RequestMapping("api")
 
 public class EmpresaController {
-/*
+
     @Autowired
     private EmpresaService empresaService;
 
     @GetMapping("/empresa")
-    public<EmpresaDomain> get(@RequestParam(required = true) String name){
-
+    public ArrayList<EmpresaDomain> get(@RequestParam(required = true) String name){
         return empresaService.get(name);
-
     }
     @GetMapping("/empresa/all")
-    public <EmpresaDomain> get()  {
-
-        return empresaService.getAll();
+    public ArrayList<EmpresaDomain> get()  {
+        return empresaService.findAll();
     }
-
     @PostMapping("/empresa")
-    public <EmpresaDomain> create(@Valid @RequestBody EmpresaDomain empresaDomain) {
-
-        return empresaService.save(empresaDomain);
+    @ResponseStatus(HttpStatus.CREATED)
+    public EmpresaDomain create(@RequestBody EmpresaDomain empresaDomain empresa) {
+        return empresaService.save(empresa);
     }
 
-    @PutMapping("/empresa")
-    public <ResponseEntity<EmpresaDomain>> update(@RequestParam(required = true) Integer empresaDomainId,
-                                                  @Valid @RequestBody EmpresaDomain empresaDomain){
-        return empresaService.update(empresaDomainId, empresaDomain).map(updateEmpresaDomain -> new ResponseEntity<>
-                (updateEmpresaDomain, HttpStatus.OK)).defaultIfEmpty(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    @PutMapping("/empresa/{id}")
+    public void update(@PathVariable("id") Long id,
+                       @Valid @RequestBody EmpresaDomain empresaDomain) {
+        empresaService.update(id, empresaDomain);
     }
 
-    @DeleteMapping("/empresa")
-    public <ResponseEntity<Void> delete (@RequestParam(required = true) Integer productosDomainId) {
-
-        return empresaService.delete(empresaDomainId).then(Mono.just(new ResponseEntity<Void>(HttpStatus.OK)))
-                .defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.NOT_FOUND));
+    @DeleteMapping("/empresa/{id}")
+    public void delete(@PathVariable("id") Long id) {
+        empresaService.delete(id);
      }
-*/
 }
