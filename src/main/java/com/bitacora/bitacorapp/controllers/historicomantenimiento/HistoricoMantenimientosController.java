@@ -1,48 +1,52 @@
 package com.bitacora.bitacorapp.controllers.historicomantenimiento;
 
-
-
+import com.bitacora.bitacorapp.domain.historicomantenimiento.HistoricoMantenimientosDomain;
+import com.bitacora.bitacorapp.service.historicomantenimiento.HistoricoMantenimientosService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("app")
+import java.util.ArrayList;
 
+@RestController
+@RequestMapping("api")
 public class HistoricoMantenimientosController {
-/*
+
     @Autowired
     private HistoricoMantenimientosService historicoMantenimientosService;
 
     @GetMapping("/historicomantenimientos")
-    public HistoricoMantenimientosDomain get(@RequestParam( required = true) Integer idHistorical){
-
-        return historicomantenimientosService.get(idHistorical);
+    public ArrayList<HistoricoMantenimientosDomain>
+    get(@RequestParam(required = true) String maintenanceDetail) {
+        return historicoMantenimientosService.get(maintenanceDetail);
     }
 
     @GetMapping("/historicomantenimientos/all")
-    public HistoricoMantenimientosDomain get(){
-        return historicoMantenimientosService.getAll();
+    public ArrayList<HistoricoMantenimientosDomain> get() {
+        return historicoMantenimientosService.findAll();
     }
 
     @PostMapping("/historicomantenimientos")
-    public HistoricoMantenimientosDomain create(@Valid @RequestBody HistoricoMantenimientosDomain historicoMantenimientosDomain) {
-
-        return historicoMantenimientosService.save(historicoMantenimientosDomain);
+    @ResponseStatus(HttpStatus.CREATED)
+    public HistoricoMantenimientosDomain create(@RequestBody HistoricoMantenimientosDomain historico) {
+        return historicoMantenimientosService.save(historico);
     }
 
-    @PutMapping("/historicomantenimientos")
-    public ResponseEntity <HistoricoMantenimientosDomain> update(@RequestParam(required = true) Integer historicoMantenimientosDomainId,
-                                                       @Valid @RequestBody historicoMantenimientosDomain historicoMantenimientoDomain){
-        return historicoMantenimientosService.update(historicoMantenimientosDomainId, historicoMantenimientosDomain).map(updateHistoricoMantenimientosDomain -> new ResponseEntity<>(
-                updateHistoricoMantenimientosDomain, HttpStatus.OK)).defaultIfEmpty(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    @PutMapping("/historicomantenimientos/{id}")
+    public void update(@PathVariable("id") Long id,
+                       @Valid @RequestBody HistoricoMantenimientosDomain historicomantenimientosDomain) {
+        historicoMantenimientosService.update(id, historicomantenimientosDomain);
     }
-    @DeleteMapping("/historicomantenimientos")
-    public ResponseEntity<Void> delete (@RequestParam(required = true) Integer historicoMantenimientosDomainId) {
 
-        return historicoMantenimientosService.delete(historicoMantenimientosDomainId).then(new ResponseEntity<Void>(HttpStatus.OK))
-                .defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.OK));
+    @PatchMapping(value = "/historicomantenimientos/{id}", consumes = "application/json-patch+json")
+    public ResponseEntity<HistoricoMantenimientosDomain> patch(@PathVariable("id") Long id, @RequestBody JsonPatch patch) {
+        return new ResponseEntity<>(historicoMantenimientosService.patch(id, patch), HttpStatus.OK);
     }
-*/
+
+    @DeleteMapping("/historicomantenimientos/{id}")
+    public void delete(@PathVariable("id") Long id) {
+        historicoMantenimientosService.delete(id);
+    }
 }

@@ -21,6 +21,11 @@ public class EmpresaController {
     public ArrayList<EmpresaDomain> get(@RequestParam(required = true) String name){
         return empresaService.get(name);
     }
+    @GetMapping("/empresa/email")
+    public EmpresaDomain getByEmail(@RequestParam(required = true) String email) {
+
+        return empresaService.getByEmail(email);
+    }
     @GetMapping("/empresa/all")
     public ArrayList<EmpresaDomain> get()  {
         return empresaService.findAll();
