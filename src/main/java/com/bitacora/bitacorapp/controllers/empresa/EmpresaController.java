@@ -18,8 +18,8 @@ public class EmpresaController {
     private EmpresaService empresaService;
 
     @GetMapping("/empresa")
-    public ArrayList<EmpresaDomain> get(@RequestParam(required = true) String name){
-        return empresaService.get(name);
+    public ArrayList<EmpresaDomain> get(@RequestParam(required = true) String nombre){
+        return empresaService.get(nombre);
     }
     @GetMapping("/empresa/email")
     public EmpresaDomain getByEmail(@RequestParam(required = true) String email) {
@@ -32,7 +32,7 @@ public class EmpresaController {
     }
     @PostMapping("/empresa")
     @ResponseStatus(HttpStatus.CREATED)
-    public EmpresaDomain create(@RequestBody EmpresaDomain empresaDomain empresa) {
+    public EmpresaDomain create(@RequestBody EmpresaDomain empresa) {
         return empresaService.save(empresa);
     }
 

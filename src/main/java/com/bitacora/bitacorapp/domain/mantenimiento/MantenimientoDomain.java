@@ -1,84 +1,115 @@
 package com.bitacora.bitacorapp.domain.mantenimiento;
 
+import com.bitacora.bitacorapp.domain.audit.AuditDomain;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Date;
 
-public class MantenimientoDomain {
 
-    private Integer id;
-    private Date startDate;
-    private Date deliverDate;
-    private Integer idCommissionedCompany;
-    private Integer idRequestingCompany;
-    private String zone;
-    private String typeOfMaintenance;
+@Entity
+@Table(name = "tbi_mantenimientos")
+@Getter
+@Setter
+
+public class MantenimientoDomain extends AuditDomain {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+     @Column(name = "id", nullable = false)
+    private Long id;
+    @Column(name = "numeroMantenimiento")
+    private Integer numeroMantenimiento;
+    @Column(name = "fechaInicio")
+    private Date fechaInicio;
+    @Column(name = "FechaEntrega")
+    private Date FechaEntrega;
+    @Column(name = "idEmpresaEncargada")
+    private Integer idEmpresaEncargada;
+    @Column(name = "idEmpresaSolicitant")
+    private Integer idEmpresaSolicitante;
+    @Column(name = "zona")
+    private String zona;
+    @Column(name = "tipoDeMantenimiento")
+    private String tipoDeMantenimiento;
 
     public MantenimientoDomain() {
     }
 
-    public MantenimientoDomain(Integer id, Date startDate, Date deliverDate, Integer idCommissionedCompany,
-                               Integer idRequestingCompany, String zone, String typeOfMaintenance) {
+    public MantenimientoDomain(Long id, Integer numeroMantenimiento, Date fechaInicio, Date fechaEntrega, Integer idEmpresaEncargada,
+                               Integer idEmpresaSolicitante, String zona, String tipoDeMantenimiento) {
         this.id = id;
-        this.startDate = startDate;
-        this.deliverDate = deliverDate;
-        this.idCommissionedCompany = idCommissionedCompany;
-        this.idRequestingCompany = idRequestingCompany;
-        this.zone = zone;
-        this.typeOfMaintenance = typeOfMaintenance;
+        this.numeroMantenimiento = numeroMantenimiento;
+        this.fechaInicio = fechaInicio;
+        FechaEntrega = fechaEntrega;
+        this.idEmpresaEncargada = idEmpresaEncargada;
+        this.idEmpresaSolicitante = idEmpresaSolicitante;
+        this.zona = zona;
+        this.tipoDeMantenimiento = tipoDeMantenimiento;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public Integer getNumeroMantenimiento() {
+        return numeroMantenimiento;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public void setNumeroMantenimiento(Integer numeroMantenimiento) {
+        this.numeroMantenimiento = numeroMantenimiento;
     }
 
-    public Date getDeliverDate() {
-        return deliverDate;
+    public Date getFechaInicio() {
+        return fechaInicio;
     }
 
-    public void setDeliverDate(Date deliverDate) {
-        this.deliverDate = deliverDate;
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
-    public Integer getIdCommissionedCompany() {
-        return idCommissionedCompany;
+    public Date getFechaEntrega() {
+        return FechaEntrega;
     }
 
-    public void setIdCommissionedCompany(Integer idCommissionedCompany) {
-        this.idCommissionedCompany = idCommissionedCompany;
+    public void setFechaEntrega(Date fechaEntrega) {
+        FechaEntrega = fechaEntrega;
     }
 
-    public Integer getIdRequestingCompany() {
-        return idRequestingCompany;
+    public Integer getIdEmpresaEncargada() {
+        return idEmpresaEncargada;
     }
 
-    public void setIdRequestingCompany(Integer idRequestingCompany) {
-        this.idRequestingCompany = idRequestingCompany;
+    public void setIdEmpresaEncargada(Integer idEmpresaEncargada) {
+        this.idEmpresaEncargada = idEmpresaEncargada;
     }
 
-    public String getZone() {
-        return zone;
+    public Integer getIdEmpresaSolicitante() {
+        return idEmpresaSolicitante;
     }
 
-    public void setZone(String zone) {
-        this.zone = zone;
+    public void setIdEmpresaSolicitante(Integer idEmpresaSolicitante) {
+        this.idEmpresaSolicitante = idEmpresaSolicitante;
     }
 
-    public String getTypeOfMaintenance() {
-        return typeOfMaintenance;
+    public String getZona() {
+        return zona;
     }
 
-    public void setTypeOfMaintenance(String typeOfMaintenance) {
-        this.typeOfMaintenance = typeOfMaintenance;
+    public void setZona(String zona) {
+        this.zona = zona;
+    }
+
+    public String getTipoDeMantenimiento() {
+        return tipoDeMantenimiento;
+    }
+
+    public void setTipoDeMantenimiento(String tipoDeMantenimiento) {
+        this.tipoDeMantenimiento = tipoDeMantenimiento;
     }
 }

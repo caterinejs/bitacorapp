@@ -1,31 +1,50 @@
 package com.bitacora.bitacorapp.domain.suscriptor;
 
 
-public class SuscriptorDomain {
+import com.bitacora.bitacorapp.domain.audit.AuditDomain;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Entity
+@Table(name = "tbi_suscriptores")
+@Getter
+@Setter
+public class SuscriptorDomain extends AuditDomain {
 
-    private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+      @Column(name="id", nullable = false)
+    private Long id;
+
+    @Column(name = "email")
     private String email;
-    private String phone;
+    @Column(name = "nombreUsuario")
+    private String nombreUsuario;
+    @Column(name = "telefono")
+    private String Telefono;
+    @Column(name = "tipoUsuario")
     private String tipoUsuario;
-    private String tiposuscriptor;
+    @Column(name = "tipoSuscriptor")
+    private String tipoSuscriptor;
 
     public SuscriptorDomain() {
     }
 
-    public SuscriptorDomain(Integer id, String email, String phone, String tipoUsuario, String tiposuscriptor) {
+    public SuscriptorDomain(Long id, String email, String nombreUsuario, String telefono, String tipoUsuario, String tipoSuscriptor) {
         this.id = id;
         this.email = email;
-        this.phone = phone;
+        this.nombreUsuario = nombreUsuario;
+        Telefono = telefono;
         this.tipoUsuario = tipoUsuario;
-        this.tiposuscriptor = tiposuscriptor;
+        this.tipoSuscriptor = tipoSuscriptor;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -37,12 +56,20 @@ public class SuscriptorDomain {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public String getTelefono() {
+        return Telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        Telefono = telefono;
     }
 
     public String getTipoUsuario() {
@@ -53,11 +80,11 @@ public class SuscriptorDomain {
         this.tipoUsuario = tipoUsuario;
     }
 
-    public String getTiposuscriptor() {
-        return tiposuscriptor;
+    public String getTipoSuscriptor() {
+        return tipoSuscriptor;
     }
 
-    public void setTiposuscriptor(String tiposuscriptor) {
-        this.tiposuscriptor = tiposuscriptor;
+    public void setTipoSuscriptor(String tipoSuscriptor) {
+        this.tipoSuscriptor = tipoSuscriptor;
     }
 }

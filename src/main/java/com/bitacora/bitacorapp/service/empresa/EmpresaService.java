@@ -51,8 +51,8 @@ public class EmpresaService {
     public void update(Long id, EmpresaDomain empresa) {
         validationData(empresa);
         if (empresaRepository.findById(id).isEmpty()) throw new EntityNotFoundException();
-        empresaRepository.updateById(empresa.getName(), empresa.getEmail(),
-                empresa.getPhone(), empresa.getLegallyResponsible(), id);
+        empresaRepository.updateById(empresa.getNombre(), empresa.getEmail(),
+                empresa.getTelefono(), empresa.getResponsableLegal(), id);
     }
     @Transactional
     public void delete(Long id) {
@@ -66,7 +66,7 @@ public class EmpresaService {
                         .orElseThrow(EntityNotFoundException::new)));
     }
 
-    private EmpresaDomain applyPatchToPerson(JsonPatch patch, EmpresaDomain person) {
+    private EmpresaDomain applyPatchToPerson(JsonPatch patch, EmpresaDomain empresa) {
         try {
             validationData(empresa);
             var objectMapper = new ObjectMapper();
@@ -81,16 +81,16 @@ public class EmpresaService {
 
         UtilStrings.requieresNoNullOrNoEmpty(empresaDomain.getEmail(),
                 String.format(Constants.TXT_EXPECT_VALUE, empresaDomain.getEmail()));
-        UtilStrings.requieresNoNullOrNoEmpty(empresaDomain.getName(),
-                String.format(Constants.TXT_EXPECT_VALUE, empresaDomain.getName()));
-        UtilStrings.requieresNoNullOrNoEmpty(empresaDomain.getPhone(),
-                String.format(Constants.TXT_EXPECT_VALUE, empresaDomain.getPhone()));
-        UtilStrings.requieresNoNullOrNoEmpty(empresaDomain.getLegallyResponsible(),
-                String.format(Constants.TXT_EXPECT_VALUE, empresaDomain.getLegallyResponsible()));
+        UtilStrings.requieresNoNullOrNoEmpty(empresaDomain.getNombre(),
+                String.format(Constants.TXT_EXPECT_VALUE, empresaDomain.getNombre()));
+        UtilStrings.requieresNoNullOrNoEmpty(empresaDomain.getTelefono(),
+                String.format(Constants.TXT_EXPECT_VALUE, empresaDomain.getTelefono()));
+        UtilStrings.requieresNoNullOrNoEmpty(empresaDomain.getResponsableLegal(),
+                String.format(Constants.TXT_EXPECT_VALUE, empresaDomain.getResponsableLegal()));
 
 
-        UtilStrings.requieresLength(empresaDomain.getPhone().toString(), 10, 14,
-                String.format(Constants.TXT_NO_LENGTH_REQUIERED, empresaDomain.getPhone().toString()));
+        UtilStrings.requieresLength(empresaDomain.getTelefono().toString(), 10, 14,
+                String.format(Constants.TXT_NO_LENGTH_REQUIERED, empresaDomain.getTelefono().toString()));
         UtilStrings.requiresPattern(empresaDomain.getEmail(), Constants.TXT_PATTER_EMAIL,
                 String.format(Constants.TXT_BAD_EMAIL, empresaDomain.getEmail()));
 

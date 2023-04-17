@@ -2,6 +2,7 @@ package com.bitacora.bitacorapp.controllers.historicomantenimiento;
 
 import com.bitacora.bitacorapp.domain.historicomantenimiento.HistoricoMantenimientosDomain;
 import com.bitacora.bitacorapp.service.historicomantenimiento.HistoricoMantenimientosService;
+import com.github.fge.jsonpatch.JsonPatch;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,8 +20,8 @@ public class HistoricoMantenimientosController {
 
     @GetMapping("/historicomantenimientos")
     public ArrayList<HistoricoMantenimientosDomain>
-    get(@RequestParam(required = true) String maintenanceDetail) {
-        return historicoMantenimientosService.get(maintenanceDetail);
+    get(@RequestParam(required = true) String detalleMantenimiento) {
+        return historicoMantenimientosService.get(detalleMantenimiento);
     }
 
     @GetMapping("/historicomantenimientos/all")

@@ -1,45 +1,65 @@
 package com.bitacora.bitacorapp.controllers.mantenimiento;
 
+import com.bitacora.bitacorapp.domain.mantenimiento.MantenimientoDomain;
+import com.bitacora.bitacorapp.service.mantenimiento.MantenimientoService;
+import com.github.fge.jsonpatch.JsonPatch;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 @RestController
-@RequestMapping("app")
+@RequestMapping("api")
 
 public class MantenimientoController {
-/*
+
     @Autowired
     private MantenimientoService mantenimientoService;
 
     @GetMapping("/mantenimiento")
-    public<MantenimientoDomain> get(@RequestParam(required = true) String zone){
+    public ArrayList<MantenimientoDomain> get(@RequestParam(required = true) Integer numeroMantenimiento) {
 
-        return mantenimientoService.get(zone);
-
+        return mantenimientoService.get(numeroMantenimiento);
     }
-    @GetMapping("/mantenimienot/all")
-    public <MantenimientoDomain> get()  {
 
-        return mantenimientoService.getAll();
+    @GetMapping("/mantenimieto/idEmpresaEncargada")
+    public ArrayList<MantenimientoDomain> getIdEmpresaEncargada(@RequestParam(required = true) Integer idEmpresaEncargada) {
+        return mantenimientoService.getIdEmpresaEncargada(idEmpresaEncargada);
     }
+
+    @GetMapping("/mantenimieto/idEmpresaSolicitante")
+    public ArrayList<MantenimientoDomain> getByIdEmpresaSolicitante(@RequestParam(required = true) Integer idEmpresaSolicitante) {
+        return mantenimientoService.getIdEmpresaSolicitante(idEmpresaSolicitante);
+    }
+
+    @GetMapping("/mantenimiento/all")
+    public ArrayList<MantenimientoDomain> get() {
+        return mantenimientoService.findAll();
+    }
+
 
     @PostMapping("/mantenimiento")
-    public <MantenimientoDomain> create(@Valid @RequestBody MantenimientoDomain mantenimientoDomain) {
-
-        return mantenimientoService.save(mantenimientoDomain);
+    @ResponseStatus(HttpStatus.CREATED)
+    public MantenimientoDomain create(@RequestBody MantenimientoDomain mantenimiento) {
+        return mantenimientoService.save(mantenimiento);
     }
 
-    @PutMapping("/mantenimiento")
-    public <ResponseEntity<MantenimientoDomain>> update(@RequestParam(required = true) String mantenimientoDomainId,
-                                                  @Valid @RequestBody MantenimientoDomain mantenimientoDomain){
-        return mantenimientoService.update(mantenimientoDomainId, mantenimientoDomain).map(updateMantenimientoDomain -> new ResponseEntity<>
-                (updateMantenimientoDomain, HttpStatus.OK)).defaultIfEmpty(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    @PutMapping("/mantenimiento/{id}")
+    public void update(@PathVariable("id") Long id,
+                       @Valid @RequestBody MantenimientoDomain mantenimientoDomain) {
+        mantenimientoService.update(id, mantenimientoDomain);
     }
 
-    @DeleteMapping("/mantenimiento")
-    public <ResponseEntity<Void> delete (@RequestParam(required = true) String mantenimientoDomainId) {
+    @PatchMapping(value = "/mantenimiento/{id}", consumes = "application/json-patch+json")
+    public ResponseEntity<MantenimientoDomain> patch(@PathVariable("id") Long id, @RequestBody JsonPatch patch) {
+        return new ResponseEntity<>(mantenimientoService.patch(id, patch), HttpStatus.OK);
+    }
 
-        return mantenimientoService.delete(mantenimientoDomainId).then(Mono.just(new ResponseEntity<Void>(HttpStatus.OK)))
-                .defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.NOT_FOUND));
-     }
-*/
+    @DeleteMapping("/mantenimiento/{id}")
+    public void delete(@PathVariable("id") Long id) {
+        mantenimientoService.delete(id);
+    }
 }

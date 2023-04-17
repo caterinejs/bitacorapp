@@ -18,32 +18,34 @@ public class HistoricoMantenimientosDomain extends AuditDomain {
     @Column(name = "id", nullable = false)
 
     private Long id;
-    @Column(name = "idHistorical")
-    private Integer idHistorical;
-    @Column(name = "maintenanceDetail")
-    private String maintenanceDetail;
-    @Column(name = "deliverDate")
-    private Date deliverDate;
-    @Column(name = "dateReceived")
-    private Date dateReceived;
-    @Column(name = "idResponsible")
-    private Integer idResponsible;
-    @Column(name = "idAuthorizes")
-    private Integer idAuthorizes;
+    @Column(name = "idHistoria")
+    private Integer idHistoria;
+    @Column(name = "detalleMantenimiento")
+    private String detalleMantenimiento;
+    @Column(name = "fechaEntrega")
+    private Date fechaEntrega;
+    @Column(name = "fechaRecibido")
+    private Date fechaRecibido;
+    @Column(name = "idResponsable")
+    private Integer idResponsable;
+    @Column(name = "idAutoriza")
+    private Integer idAutoriza;
+
+    @Column(name = "idElabora")
+    private Integer idElabora;
 
     public HistoricoMantenimientosDomain() {
     }
 
-    public HistoricoMantenimientosDomain(Long id, Integer idHistorical, String maintenanceDetail,
-                                         Date deliverDate, Date dateReceived, Integer idResponsible,
-                                         Integer idAuthorizes) {
+    public HistoricoMantenimientosDomain(Long id, Integer idHistoria, String detalleMantenimiento, Date fechaEntrega, Date fechaRecibido, Integer idResponsable, Integer idAutoriza, Integer idElabora) {
         this.id = id;
-        this.idHistorical = idHistorical;
-        this.maintenanceDetail = maintenanceDetail;
-        this.deliverDate = deliverDate;
-        this.dateReceived = dateReceived;
-        this.idResponsible = idResponsible;
-        this.idAuthorizes = idAuthorizes;
+        this.idHistoria = idHistoria;
+        this.detalleMantenimiento = detalleMantenimiento;
+        this.fechaEntrega = fechaEntrega;
+        this.fechaRecibido = fechaRecibido;
+        this.idResponsable = idResponsable;
+        this.idAutoriza = idAutoriza;
+        this.idElabora = idElabora;
     }
 
     public Long getId() {
@@ -54,51 +56,59 @@ public class HistoricoMantenimientosDomain extends AuditDomain {
         this.id = id;
     }
 
-    public Integer getIdHistorical() {
-        return idHistorical;
+    public Integer getIdHistoria() {
+        return idHistoria;
     }
 
-    public void setIdHistorical(Integer idHistorical) {
-        this.idHistorical = idHistorical;
+    public void setIdHistoria(Integer idHistoria) {
+        this.idHistoria = idHistoria;
     }
 
-    public String getMaintenanceDetail() {
-        return maintenanceDetail;
+    public String getDetalleMantenimiento() {
+        return detalleMantenimiento;
     }
 
-    public void setMaintenanceDetail(String maintenanceDetail) {
-        this.maintenanceDetail = maintenanceDetail;
+    public void setDetalleMantenimiento(String detalleMantenimiento) {
+        this.detalleMantenimiento = detalleMantenimiento;
     }
 
-    public Date getDeliverDate() {
-        return deliverDate;
+    public Date getFechaEntrega() {
+        return fechaEntrega;
     }
 
-    public void setDeliverDate(Date deliverDate) {
-        this.deliverDate = deliverDate;
+    public void setFechaEntrega(Date fechaEntrega) {
+        this.fechaEntrega = fechaEntrega;
     }
 
-    public Date getDateReceived() {
-        return dateReceived;
+    public Date getFechaRecibido() {
+        return fechaRecibido;
     }
 
-    public void setDateReceived(Date dateReceived) {
-        this.dateReceived = dateReceived;
+    public void setFechaRecibido(Date fechaRecibido) {
+        this.fechaRecibido = fechaRecibido;
     }
 
-    public Integer getIdResponsible() {
-        return idResponsible;
+    public Integer getIdResponsable() {
+        return idResponsable;
     }
 
-    public void setIdResponsible(Integer idResponsible) {
-        this.idResponsible = idResponsible;
+    public void setIdResponsable(Integer idResponsable) {
+        this.idResponsable = idResponsable;
     }
 
-    public Integer getIdAuthorizes() {
-        return idAuthorizes;
+    public Integer getIdAutoriza() {
+        return idAutoriza;
     }
 
-    public void setIdAuthorizes(Integer idAuthorizes) {
-        this.idAuthorizes = idAuthorizes;
+    public void setIdAutoriza(Integer idAutoriza) {
+        this.idAutoriza = idAutoriza;
+    }
+
+    public Integer getIdElabora() {
+        return idElabora;
+    }
+
+    public void setIdElabora(Integer idElabora) {
+        this.idElabora = idElabora;
     }
 }

@@ -15,29 +15,29 @@ public class EmpresaDomain extends AuditDomain {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-       @Column(name = "id", nullable = false)
+    @Column(name = "id", nullable = false)
 
     private Long id;
-    @Column(name = "name")
-    private String name;
-    @Column(name ="phone")
-    private String phone;
-    @Column(name ="email")
+    @Column(name = "nombre")
+    private String nombre;
+    @Column(name = "telefono")
+    private String telefono;
+    @Column(name = "email")
     private String email;
-    @Column(name ="legallyResponsible")
-    private String legallyResponsible;
+    @Column(name = "responsableLegal")
+    private String responsableLegal;
 
     public EmpresaDomain() {
     }
 
-    public EmpresaDomain(Long id, String name, String phone, String email, String legallyResponsible) {
-
-    this.id = id;
-    this.name = name;
-    this.phone = phone;
-    this.email = email;
-    this.legallyResponsible = legallyResponsible;
+    public EmpresaDomain(Long id, String nombre, String telefono, String email, String responsableLegal) {
+        this.id = id;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.email = email;
+        this.responsableLegal = responsableLegal;
     }
+
     public Long getId() {
         return id;
     }
@@ -46,20 +46,20 @@ public class EmpresaDomain extends AuditDomain {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public String getEmail() {
@@ -70,12 +70,11 @@ public class EmpresaDomain extends AuditDomain {
         this.email = email;
     }
 
-    public String getLegallyResponsible() {
-        return legallyResponsible;
+    public String getResponsableLegal() {
+        return responsableLegal;
     }
 
-    public void setLegallyResponsible(String legallyResponsible) {
-        this.legallyResponsible = legallyResponsible;
+    public void setResponsableLegal(String responsableLegal) {
+        this.responsableLegal = responsableLegal;
     }
 }
-

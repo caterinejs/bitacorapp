@@ -1,11 +1,33 @@
 package com.bitacora.bitacorapp.repository.suscriptor;
 
+import com.bitacora.bitacorapp.domain.suscriptor.SuscriptorDomain;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface SuscriptorRepository //extends CrudRepository<PersonasDomain, Integer>
- {
+import java.util.ArrayList;
 
-   // @Query("{'id':?0}")
-    //public PersonasDomain findByName(Integer id);
+@Repository
+public interface SuscriptorRepository extends CrudRepository<SuscriptorDomain, Long> {
+
+  @Query(value = "SELECT s.id as id, s.nombreUsuario as nombreUsuario, s.telefono as telefono, " +
+          "s.tipoUsuario as tipoUsuario , s.tipoSuscriptor as tipoSuscriptor, s.email as email, " +
+          "p.user_type as user_type FROM schema_bitacorapp.tbi_suscriptores s " +
+          "WHERE s.nombreUsuario like %?1%", nativeQuery = true)
+  ArrayList<SuscriptorDomain> findByNombreUsuario(String nombreUsuario);
+
+  @Query(value = "SELECT s.id as id, s.nombreUsuario as nombreUsuario, s.telefono as telefono," +
+          " s.tipoUsuario as tipoUsuario , s.email as email, s.tipoSuscriptor as tipoSuscriptor," +
+          " s.user_type as user_type FROM schema_bitacorapp.tbi_suscriptores s WHERE s.email = ?1", nativeQuery = true)
+  SuscriptorDomain findByEmail(String email);
+
+  @Query(value = "SELECT count(1) FROM schema_bitacorapp.tbi_suscriptores s WHERE p.email = ?1", nativeQuery = true)
+  int countByEmail(String email);
+
+  @Modifying
+  @Query(value = "UPDATE schema_bitacorapp.tbi_suscriptores SET nombreUsuario = ?1, email = ?2, telefono = ?3, tipoUsuario= ?4, tipoSuscriptor = ?5, modified_date = CURRENT_TIMESTAMP WHERE id = ?7", nativeQuery = true)
+  void updateById(String nombreUsuario, String tipoUsuario, String Telefono, String TipoSuscriptor, String email, long id);
+
+
 }
