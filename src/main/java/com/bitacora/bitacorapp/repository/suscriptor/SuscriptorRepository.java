@@ -22,12 +22,12 @@ public interface SuscriptorRepository extends CrudRepository<SuscriptorDomain, L
           " s.user_type as user_type FROM schema_bitacorapp.tbi_suscriptores s WHERE s.email = ?1", nativeQuery = true)
   SuscriptorDomain findByEmail(String email);
 
-  @Query(value = "SELECT count(1) FROM schema_bitacorapp.tbi_suscriptores s WHERE p.email = ?1", nativeQuery = true)
+  @Query(value = "SELECT count(1) FROM schema_bitacorapp.tbi_suscriptores s WHERE s.email = ?1", nativeQuery = true)
   int countByEmail(String email);
 
   @Modifying
-  @Query(value = "UPDATE schema_bitacorapp.tbi_suscriptores SET nombreUsuario = ?1, email = ?2, telefono = ?3, tipoUsuario= ?4, tipoSuscriptor = ?5, modified_date = CURRENT_TIMESTAMP WHERE id = ?7", nativeQuery = true)
-  void updateById(String nombreUsuario, String tipoUsuario, String Telefono, String TipoSuscriptor, String email, long id);
+  @Query(value = "UPDATE schema_bitacorapp.tbi_suscriptores SET email = ?1,  nombre_usuario = ?2, telefono = ?3, tipo_usuario= ?4, tipo_suscriptor = ?5, modified_date = CURRENT_TIMESTAMP WHERE id = ?6", nativeQuery = true)
+  void updateById(String email, String nombreUsuario, String Telefono, String tipoUsuario, String tipoSuscriptor,  long id);
 
 
 }

@@ -53,8 +53,7 @@ public class MantenimientoService {
     public void update(Long id, MantenimientoDomain mantenimientos) {
         validationData(mantenimientos);
         if(mantenimientoRepository.findById(id).isEmpty()) throw new EntityNotFoundException();
-        mantenimientoRepository.updateById(mantenimientos.getNumeroMantenimiento(), mantenimientos.getFechaEntrega(), mantenimientos.getFechaInicio(),  mantenimientos.getIdEmpresaEncargada(),
-                mantenimientos.getIdEmpresaSolicitante(), mantenimientos.getZona(), mantenimientos.getTipoDeMantenimiento(),  id);
+        mantenimientoRepository.updateById(mantenimientos.getNumeroMantenimiento(), mantenimientos.getFechaInicio(), mantenimientos.getFechaEntrega(), mantenimientos.getIdEmpresaEncargada(), mantenimientos.getIdEmpresaSolicitante(), mantenimientos.getZona(), mantenimientos.getTipoDeMantenimiento(), id);
     }
 
     @Transactional

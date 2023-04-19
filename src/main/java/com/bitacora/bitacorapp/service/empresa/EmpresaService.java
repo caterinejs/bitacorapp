@@ -30,8 +30,8 @@ public class EmpresaService {
     }
 
     @Transactional
-    public ArrayList<EmpresaDomain> get(String name) {
-        return empresaRepository.findByName(name.toUpperCase(Locale.ROOT));
+    public ArrayList<EmpresaDomain> get(String nombre) {
+        return empresaRepository.findByNombre(nombre.toUpperCase(Locale.ROOT));
     }
 
     @Transactional
@@ -51,8 +51,11 @@ public class EmpresaService {
     public void update(Long id, EmpresaDomain empresa) {
         validationData(empresa);
         if (empresaRepository.findById(id).isEmpty()) throw new EntityNotFoundException();
-        empresaRepository.updateById(empresa.getNombre(), empresa.getEmail(),
-                empresa.getTelefono(), empresa.getResponsableLegal(), id);
+        empresaRepository.updateById(empresa.getNombre(),
+                empresa.getTelefono(),
+                empresa.getEmail(),
+                empresa.getResponsableLegal(),
+                id);
     }
     @Transactional
     public void delete(Long id) {
@@ -62,11 +65,11 @@ public class EmpresaService {
     @Transactional
     public EmpresaDomain patch(long id, JsonPatch patch) {
         return empresaRepository.save(
-                applyPatchToPerson(patch, empresaRepository.findById(id)
+                applyPatchToEmpresa(patch, empresaRepository.findById(id)
                         .orElseThrow(EntityNotFoundException::new)));
     }
 
-    private EmpresaDomain applyPatchToPerson(JsonPatch patch, EmpresaDomain empresa) {
+    private EmpresaDomain applyPatchToEmpresa(JsonPatch patch, EmpresaDomain empresa) {
         try {
             validationData(empresa);
             var objectMapper = new ObjectMapper();

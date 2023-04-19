@@ -24,10 +24,10 @@ public class MantenimientoDomain extends AuditDomain {
     @Column(name = "fechaInicio")
     private Date fechaInicio;
     @Column(name = "FechaEntrega")
-    private Date FechaEntrega;
+    private Date fechaEntrega;
     @Column(name = "idEmpresaEncargada")
     private Integer idEmpresaEncargada;
-    @Column(name = "idEmpresaSolicitant")
+    @Column(name = "idEmpresaSolicitante")
     private Integer idEmpresaSolicitante;
     @Column(name = "zona")
     private String zona;
@@ -42,7 +42,7 @@ public class MantenimientoDomain extends AuditDomain {
         this.id = id;
         this.numeroMantenimiento = numeroMantenimiento;
         this.fechaInicio = fechaInicio;
-        FechaEntrega = fechaEntrega;
+        this.fechaEntrega = fechaEntrega;
         this.idEmpresaEncargada = idEmpresaEncargada;
         this.idEmpresaSolicitante = idEmpresaSolicitante;
         this.zona = zona;
@@ -74,11 +74,11 @@ public class MantenimientoDomain extends AuditDomain {
     }
 
     public Date getFechaEntrega() {
-        return FechaEntrega;
+        return fechaEntrega;
     }
 
     public void setFechaEntrega(Date fechaEntrega) {
-        FechaEntrega = fechaEntrega;
+        fechaEntrega = fechaEntrega;
     }
 
     public Integer getIdEmpresaEncargada() {

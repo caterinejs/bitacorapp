@@ -22,7 +22,7 @@ public class SuscriptorDomain extends AuditDomain {
     @Column(name = "nombreUsuario")
     private String nombreUsuario;
     @Column(name = "telefono")
-    private String Telefono;
+    private String telefono;
     @Column(name = "tipoUsuario")
     private String tipoUsuario;
     @Column(name = "tipoSuscriptor")
@@ -35,7 +35,7 @@ public class SuscriptorDomain extends AuditDomain {
         this.id = id;
         this.email = email;
         this.nombreUsuario = nombreUsuario;
-        Telefono = telefono;
+        this.telefono = telefono;
         this.tipoUsuario = tipoUsuario;
         this.tipoSuscriptor = tipoSuscriptor;
     }
@@ -65,11 +65,11 @@ public class SuscriptorDomain extends AuditDomain {
     }
 
     public String getTelefono() {
-        return Telefono;
+        return telefono;
     }
 
     public void setTelefono(String telefono) {
-        Telefono = telefono;
+        this.telefono = telefono;
     }
 
     public String getTipoUsuario() {
@@ -88,3 +88,6 @@ public class SuscriptorDomain extends AuditDomain {
         this.tipoSuscriptor = tipoSuscriptor;
     }
 }
+
+
+

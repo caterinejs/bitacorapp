@@ -45,15 +45,16 @@ public class SuscriptorService {
         if (suscriptorRepository.countByEmail(suscriptor.getEmail()) > 0) {
             throw new IllegalArgumentException("email already exits");
         }
-        return SuscriptorRepository.save(suscriptor);
+        return suscriptorRepository.save(suscriptor);
     }
 
+
     @Transactional
-    public void update(Long id, SuscriptorDomain person) {
-        validationData(person);
+    public void update(Long id, SuscriptorDomain suscriptor) {
+        validationData(suscriptor);
         if (suscriptorRepository.findById(id).isEmpty()) throw new EntityNotFoundException();
-        suscriptorRepository.updateById(suscriptor.getNombreUsuario(), suscriptor.getEmail(), suscriptor.getCompanyId(),
-                person.getPhone(), person.getSignature(), person.getUserType(), id);
+        suscriptorRepository.updateById(suscriptor.getEmail(), suscriptor.getNombreUsuario(),
+                suscriptor.getTelefono(), suscriptor.getTipoUsuario(), suscriptor.getTipoSuscriptor(),  id);
     }
 
     @Transactional
@@ -61,10 +62,11 @@ public class SuscriptorService {
         suscriptorRepository.deleteById(id);
     }
 
+
     @Transactional
     public SuscriptorDomain patch(long id, JsonPatch patch) {
         return suscriptorRepository.save(
-                applyPatchToPerson(patch, SuscriptorRepository.findById(id)
+                applyPatchToPerson(patch, suscriptorRepository.findById(id)
                         .orElseThrow(EntityNotFoundException::new)));
     }
 

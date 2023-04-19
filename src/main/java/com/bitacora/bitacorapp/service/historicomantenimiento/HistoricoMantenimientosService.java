@@ -42,8 +42,8 @@ public class HistoricoMantenimientosService {
     public void update(Long id, HistoricoMantenimientosDomain historico) {
         validationData(historico);
         if (HistoricoMantenimientoRepository.findById(id).isEmpty()) throw new EntityNotFoundException();
-        HistoricoMantenimientoRepository.updateById(historico.getDetalleMantenimiento(), historico.getIdAutoriza(), historico.getFechaEntrega(), historico.getFechaRecibido(),
-                historico.getIdResponsable(), historico.getIdHistoria(), historico.getIdElabora(), id);
+        HistoricoMantenimientoRepository.updateById(historico.getIdHistoria(), historico.getDetalleMantenimiento(), historico.getFechaEntrega(), historico.getFechaRecibido(), historico.getIdResponsable(),  historico.getIdAutoriza(),
+                historico.getIdElabora(), id);
     }
 
     @Transactional

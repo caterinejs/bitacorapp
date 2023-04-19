@@ -51,7 +51,7 @@ public class SuscriptorController {
         return new ResponseEntity<>(suscriptorService.patch(id, patch), HttpStatus.OK);
     }
 
-    @DeleteMapping("/personas/{id}")
+    @DeleteMapping("/suscriptor/{id}")
     public void delete(@PathVariable("id") Long id) {
         suscriptorService.delete(id);
     }

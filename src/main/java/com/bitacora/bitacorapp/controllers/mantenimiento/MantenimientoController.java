@@ -25,11 +25,6 @@ public class MantenimientoController {
         return mantenimientoService.get(numeroMantenimiento);
     }
 
-    @GetMapping("/mantenimieto/idEmpresaEncargada")
-    public ArrayList<MantenimientoDomain> getIdEmpresaEncargada(@RequestParam(required = true) Integer idEmpresaEncargada) {
-        return mantenimientoService.getIdEmpresaEncargada(idEmpresaEncargada);
-    }
-
     @GetMapping("/mantenimieto/idEmpresaSolicitante")
     public ArrayList<MantenimientoDomain> getByIdEmpresaSolicitante(@RequestParam(required = true) Integer idEmpresaSolicitante) {
         return mantenimientoService.getIdEmpresaSolicitante(idEmpresaSolicitante);
