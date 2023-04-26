@@ -29,5 +29,4 @@ public interface SuscriptorRepository extends CrudRepository<SuscriptorDomain, L
   @Query(value = "UPDATE schema_bitacorapp.tbi_suscriptores SET email = ?1,  nombre_usuario = ?2, telefono = ?3, tipo_usuario= ?4, tipo_suscriptor = ?5, modified_date = CURRENT_TIMESTAMP WHERE id = ?6", nativeQuery = true)
   void updateById(String email, String nombreUsuario, String Telefono, String tipoUsuario, String tipoSuscriptor,  long id);
 
-
 }
