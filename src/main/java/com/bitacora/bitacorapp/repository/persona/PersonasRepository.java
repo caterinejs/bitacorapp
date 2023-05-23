@@ -14,13 +14,13 @@ public interface PersonasRepository extends CrudRepository<PersonasDomain, Long>
 
     @Query(value = "SELECT p.id as id, p.name as name, p.phone as phone, " +
             "p.signature as signature , p.email as email, p.company_id as company_id, " +
-            "p.user_type as user_type FROM schema_bitacorapp.tbi_personas p " +
+            "p.user_type as user_type, p.created_date as created_date, p.modified_date as modified_date  FROM schema_bitacorapp.tbi_personas p " +
             "WHERE p.name like %?1%", nativeQuery = true)
     ArrayList<PersonasDomain> findByName(String name);
 
     @Query(value = "SELECT p.id as id, p.name as name, p.phone as phone," +
             " p.signature as signature , p.email as email, p.company_id as company_id," +
-            " p.user_type as user_type FROM schema_bitacorapp.tbi_personas p WHERE p.email = ?1", nativeQuery = true)
+            " p.user_type as user_type, p.created_date as created_date, p.modified_date as modified_date FROM schema_bitacorapp.tbi_personas p WHERE p.email = ?1", nativeQuery = true)
     PersonasDomain findByEmail(String email);
 
     @Query(value = "SELECT count(1) FROM schema_bitacorapp.tbi_personas p WHERE p.email = ?1", nativeQuery = true)
