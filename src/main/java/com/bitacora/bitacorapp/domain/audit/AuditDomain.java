@@ -13,7 +13,7 @@ import static jakarta.persistence.TemporalType.TIMESTAMP;
 @MappedSuperclass
 @Getter
 @Setter
-public class AuditDomain {
+public class    AuditDomain {
 
     @Column(name = "created_date")
     @CreatedDate
@@ -34,4 +34,19 @@ public class AuditDomain {
         modifiedDate = new Date();
     }
 
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
+    }
 }
